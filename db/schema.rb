@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_04_26_185337) do
     t.string "state"
     t.string "zip_code"
     t.integer "user_id"
+    t.string "address_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
