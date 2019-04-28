@@ -3,6 +3,21 @@
 	<%= f.label :email %>
 	<%= f.text_field :email %>
 	</p>
+
+	<%= f.fields_for :addresses do |address_builder| %>
+	<fieldset>
+ 		<legend>Home Address</legend>
+ 		<p>
+			<%= address_builder.label :street_1 %>
+			<%= address_builder.text_field :street_1 %>
+ 		</p>
+ 		<p>
+			<%= address_builder.label :street_2 %>
+			<%= address_builder.text_field :street_2 %>
+ 		</p>
+ 		<%= address_builder.hidden_field :address_type %>
+ 	</fieldset>
+ 	<% end %>
 <%= f.submit %>
 <% end %>
 
@@ -14,24 +29,26 @@
 # 	<fieldset>
 # 		<legend>Home Address</legend>
 # 		<p>
-# 			<label>Street</label>
-# 			<input type="text" name="">
+# 			<label>Street 1</label>
+# 			<input type="text" name="user[addresses_attributes][][street_1]">
 # 		</p>
 # 		<p>
-# 			<label>Street</label>
-# 			<input type="text" name="">
+# 			<label>Street 2</label>
+# 			<input type="text" name="user[addresses_attributes][][street_2]">
 # 		</p>
+		<input type="hidden" name="user[addresses_attributes][][address_type] value="Home">  #hardcoding that this is going to be home address
 # 	</fieldset>
 # 	<fieldset>
 # 		<legend>Business Address</legend>
 # 		<p>
-# 			<label>Street</label>
+# 			<label>Street 1</label>
 # 			<input type="text"name="">
 # 		</p>
 # 		<p>
-# 			<label>Street</label>
+# 			<label>Street 2</label>
 # 			<input type="text" name="">
 # 		</p>
+<input type="hidden" name="user[addresses_attributes][][address_type] value="Biz"
 # 	</fieldset>
 
 # 	<fieldset>
