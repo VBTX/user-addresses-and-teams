@@ -12,6 +12,8 @@ class User < ApplicationRecord
 		self.team = Team.where(:name => team_attributes[:name]).first_or_create do
 			t.hometown = team_attributes[:hometown]
 		end
+
+		
 		#team_attributes = {
 		#:name => "New Team Name",
 		#:hometown => "NYC"
