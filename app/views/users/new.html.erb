@@ -18,6 +18,16 @@
  		<%= address_builder.hidden_field :address_type %>
  	</fieldset>
  	<% end %>
+
+ 	<%= user_builder.fields_for :team do |team_builder| %>
+ 		<fieldset>
+ 		<legend>Team (name required, hometown required only for new teams) </legend>
+ 		<p>
+			<%= team_builder.label :hometown %>
+			<%= team_builder.text_field :hometown %>
+ 		</p>
+ 	</fieldset>
+ 	
 <%= f.submit %>
 <% end %>
 

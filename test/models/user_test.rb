@@ -5,10 +5,10 @@ class UserTest < ActiveSupport::TestCase
   	params = {
   		:user => {
   			:email => "the@email.com"
-  			:addresses_attributes => [
-  				{:street_1 => "Address 1 Street", :address_type => "Home"},
-  				{:street_1 => "Address 2 Street", :address_type => "Business"}
-  			]
+  			:addresses_attributes => {
+  				0 => {:street_1 => "Address 1 Street", :address_type => "Home"},
+  				1 => {:street_1 => "Address 2 Street", :address_type => "Business"}
+  			}
   		}
   	}
 
@@ -21,6 +21,8 @@ class UserTest < ActiveSupport::TestCase
 
   	assert_equal user.addresses.last.street_1, "Address 2 Street"
   	assert_equal user.addresses.last.address_type, "home"
-  	
+
   end
+
+  
 end
