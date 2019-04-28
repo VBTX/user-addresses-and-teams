@@ -6,7 +6,7 @@
 
 	<%= f.fields_for :addresses do |address_builder| %>
 	<fieldset>
- 		<legend>Home Address</legend>
+ 		<legend><%= address_builder.object.address_type%> address </legend>
  		<p>
 			<%= address_builder.label :street_1 %>
 			<%= address_builder.text_field :street_1 %>
