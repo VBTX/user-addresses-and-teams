@@ -1,12 +1,13 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user) do |user_builder| %>
 <p>
-	<%= f.label :email %>
-	<%= f.text_field :email %>
+	<%= user_builder.label :email %>
+	<%= user_builder.text_field :email %>
 	</p>
 
-	<%= f.fields_for :addresses do |address_builder| %>
+	<%= user_builder.fields_for :addresses do |address_builder| %>
 	<fieldset>
- 		<legend><%= address_builder.object.address_type%> address </legend>
+ 		<legend><%= address_builder.object.address_type %> address </legend>
+
  		<p>
 			<%= address_builder.label :street_1 %>
 			<%= address_builder.text_field :street_1 %>
@@ -23,15 +24,19 @@
  		<fieldset>
  		<legend>Team (name required, hometown required only for new teams) </legend>
  		<p>
+			<%= team_builder.label :name %>
+			<%= team_builder.text_field :name %>
+ 		</p>
+ 		<p>
 			<%= team_builder.label :hometown %>
 			<%= team_builder.text_field :hometown %>
  		</p>
  	</fieldset>
- 	
-<%= f.submit %>
+<%end%>
+<%= user_builder.submit %>
 <% end %>
 
-# <!-- <form>
+<!-- <form>
 # 	<p>
 # 		<label>Email</label>
 # 		<input type="text" name="">
